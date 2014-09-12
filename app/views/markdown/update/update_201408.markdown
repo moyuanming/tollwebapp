@@ -1,0 +1,25 @@
+# 服务器软件八月更新内容 #
+
+此更新包括以下改动
+
+	1. 废除MessageRouter.exe Msg2DBServer.exe IMG2DBServer.exe 
+	2. 废除服务器图片FTP
+	3. 增加针对每条车道的数据提取程序 TCS.PGMsg2DBServer
+	4. 增加针对每条车道的图片下载程序 TCS.SHFTPScanner 
+	5. 增加进程管理程序 TCS.PGLWatch
+	6. 增加配置项ClearWhenDBSize 数据库大小限定，超过此阀值开始删除数据
+	7. 增加配置项ClearHour 决定何时清理车道数据 
+	8. 增加配置项RecvClearDays决定超过多少天的数据会被清理
+
+使用下面的命令卸载和安装服务
+'
+
+	net stop MessageRouter
+	net stop MSG2DBServer
+	"%systemroot%\Microsoft.NET\Framework\v4.0.30319\InstallUtil.exe"  "D:\RHYSOFT\BIN\MessageRouter.exe"  /u
+	"%systemroot%\Microsoft.NET\Framework\v4.0.30319\InstallUtil.exe"  "D:\RHYSOFT\BIN\MSG2DBServer.exe" /u
+	"%systemroot%\Microsoft.NET\Framework\v4.0.30319\InstallUtil.exe"  "D:\RHYSOFT\BIN\TCS.PGLWatch"
+	echo 正在启动 消息处理程序
+	net start TCS.PGLWatch
+'
+

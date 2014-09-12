@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140909031221) do
+ActiveRecord::Schema.define(version: 20140910081645) do
+
+  create_table "gljdaimas", force: true do |t|
+    t.string   "name"
+    t.string   "no"
+    t.string   "desc"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "microposts", force: true do |t|
     t.string   "content"
@@ -21,6 +29,14 @@ ActiveRecord::Schema.define(version: 20140909031221) do
   end
 
   add_index "microposts", ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
+
+  create_table "pianqudaimas", force: true do |t|
+    t.string   "name"
+    t.string   "no"
+    t.string   "desc"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "relationships", force: true do |t|
     t.integer  "follower_id"
@@ -32,6 +48,20 @@ ActiveRecord::Schema.define(version: 20140909031221) do
   add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
   add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
   add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
+
+  create_table "tollstations", force: true do |t|
+    t.string   "name"
+    t.string   "oldnetwork"
+    t.string   "oldplaza"
+    t.string   "oldip"
+    t.string   "newnetwork"
+    t.string   "newplaza"
+    t.string   "newip"
+    t.integer  "pianqudaima_id"
+    t.integer  "gljdaima_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"

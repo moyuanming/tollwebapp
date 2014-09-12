@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @tollstation.name %>
+</p>
+
+<p>
+  <strong>Oldnetwork:</strong>
+  <%= @tollstation.oldnetwork %>
+</p>
+
+<p>
+  <strong>Oldplaza:</strong>
+  <%= @tollstation.oldplaza %>
+</p>
+
+<p>
+  <strong>Oldip:</strong>
+  <%= @tollstation.oldip %>
+</p>
+
+<p>
+  <strong>Newnetwork:</strong>
+  <%= @tollstation.newnetwork %>
+</p>
+
+<p>
+  <strong>Newplaza:</strong>
+  <%= @tollstation.newplaza %>
+</p>
+
+<p>
+  <strong>Newip:</strong>
+  <%= @tollstation.newip %>
+</p>
+
+<p>
+  <strong>Pianqudaima:</strong>
+  <%= Pianqudaima.find(@tollstation.pianqudaima_id).name %>
+</p>
+
+<p>
+  <strong>Gljdaima:</strong>
+  <%= Gljdaima.find(@tollstation.gljdaima_id).name %>
+</p>
+
+<%= link_to 'Edit', edit_tollstation_path(@tollstation) %> |
+<%= link_to 'Back', tollstations_path %>

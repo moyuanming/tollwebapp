@@ -1,0 +1,29 @@
+<%= form_for(@pianqudaima) do |f| %>
+  <% if @pianqudaima.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pianqudaima.errors.count, "error") %> prohibited this pianqudaima from being saved:</h2>
+
+      <ul>
+      <% @pianqudaima.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :片区名称 %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :片区代码 %><br>
+    <%= f.text_field :no %>
+  </div>
+  <div class="field">
+    <%= f.label :片区描述 %><br>
+    <%= f.text_field :desc %>
+  </div>
+  <div class="actions">
+    <%= f.submit '添加',class: "btn  btn-primary"%>
+  </div>
+<% end %>

@@ -1,0 +1,35 @@
+<h3>收费片区列表</h3>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>片区名称</th>
+      <th>片区代码</th>
+      <th>片区描述</th>
+       <th colspan="2">操作</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% odd = 0 %>
+    <% @pianqudaimas.each do |pianqudaima| %>
+      <% if odd ==0 %>
+      <tr class="">
+      <% odd =1 ; else %>  
+      <tr >
+      <% odd =0  ; end %>
+      
+
+        <td><%= link_to pianqudaima.name , pianqudaima %></td>
+        <td><%= pianqudaima.no %></td>
+        <td><%= pianqudaima.desc %></td>
+        <td><%= link_to '编辑', edit_pianqudaima_path(pianqudaima) %></td>
+        <td><%= link_to '删除', pianqudaima, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '添加新片区信息', new_pianqudaima_path %>

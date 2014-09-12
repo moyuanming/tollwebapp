@@ -1,0 +1,32 @@
+
+
+    <h3>公路局信息列表</h3>
+    <br>
+<table class = 'table'>
+  <thead>
+    <tr>
+      <th>公路局名称</th>
+      <th>公路局编码</th>
+      <th>描述</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gljdaimas.each do |gljdaima| %>
+      <tr>
+        <td><%= link_to gljdaima.name ,gljdaima %></td>
+        <td><%= gljdaima.no %></td>
+        <td><%= gljdaima.desc %></td>
+        <td><%= link_to '编辑', edit_gljdaima_path(gljdaima) %></td>
+        <td><%= link_to '删除', gljdaima, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to '添加公路局信息', new_gljdaima_path %>
+
+
+

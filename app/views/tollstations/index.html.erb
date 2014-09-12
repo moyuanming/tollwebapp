@@ -1,0 +1,39 @@
+<h1>Listing tollstations</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>收费站</th>
+      <th>原路网号</th>
+      <th>原站代码</th>
+      <th>原IP</th>
+      <th>新路网号</th>
+      <th>新站代码</th>
+      <th>新IP</th>
+      <th>所属片区</th>
+      <th>所属公路局</th>
+      <th colspan="2">操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tollstations.each do |tollstation| %>
+      <tr>
+        <td><%= link_to tollstation.name , tollstation%></td>
+        <td><%= tollstation.oldnetwork %></td>
+        <td><%= tollstation.oldplaza %></td>
+        <td><%= tollstation.oldip %></td>
+        <td><%= tollstation.newnetwork %></td>
+        <td><%= tollstation.newplaza %></td>
+        <td><%= tollstation.newip %></td>
+        <td><%= link_to Pianqudaima.find(tollstation.pianqudaima_id).name ,Pianqudaima.find(tollstation.pianqudaima_id)%></td>
+        <td><%= link_to Gljdaima.find( tollstation.gljdaima_id).name ,Gljdaima.find( tollstation.gljdaima_id) %></td>
+       
+        <td><%= link_to 'Edit', edit_tollstation_path(tollstation) %></td>
+        <td><%= link_to 'Destroy', tollstation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+<%= link_to 'New Tollstation', new_tollstation_path %>

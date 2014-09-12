@@ -1,0 +1,43 @@
+<%= form_for(@tollstation) do |f| %>
+  <% if @tollstation.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@tollstation.errors.count, "error") %>prohibited this tollstation from being saved:</h2>
+    <ul>
+      <% @tollstation.errors.full_messages.each do |message| %>
+      <li>
+        <%= message %></li>
+      <% end %></ul>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %></div>
+  <div class="field">
+    <%= f.label :oldnetwork %>
+    <%= f.text_field :oldnetwork %></div>
+  <div class="field">
+    <%= f.label :oldplaza %>
+    <%= f.text_field :oldplaza %></div>
+  <div class="field">
+    <%= f.label :oldip %>
+    <%= f.text_field :oldip %></div>
+  <div class="field">
+    <%= f.label :newnetwork %>
+    <%= f.text_field :newnetwork %></div>
+  <div class="field">
+    <%= f.label :newplaza %>
+    <%= f.text_field :newplaza %></div>
+  <div class="field">
+    <%= f.label :newip %>
+    <%= f.text_field :newip %></div>
+  <div class="field">
+    <%= f.label :pianqudaima_id %>
+    <%= f.select(:pianqudaima_id,options_from_collection_for_select(Pianqudaima.all, :id, :name) ) %></div>
+  <div class="field">
+    <%= f.label :gljdaima_id %>
+    <%= f.select(:gljdaima_id,options_from_collection_for_select(Gljdaima.all, :id, :name) ) %></div>
+  <div class="actions">
+    <%= f.submit %></div>
+<% end %>

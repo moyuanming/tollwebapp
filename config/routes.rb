@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :tollstations
+
+  resources :gljdaimas
+  resources :markdown
+  resources :pianqudaimas
+
   resources :users do
     member do
       get :following, :followers

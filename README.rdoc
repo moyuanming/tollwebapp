@@ -26,3 +26,8 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+
+rails g scaffold pianqudaima name:string  no:string desc:string
+rails g scaffold gljdaima name:string  no:string desc:string
+rails g scaffold tollstation name:string  oldnetwork:string oldplaza:string oldip:string newnetwork:string newplaza:string newip:string pianqudaima_id:integer gljdaima_id:integer

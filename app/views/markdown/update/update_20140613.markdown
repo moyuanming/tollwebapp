@@ -1,0 +1,40 @@
+
+## 2014年6月13日更新哈密各个站MessageRouter
+1.更新MessageRouter ,版本号后4位 `5671`
+
+2.添加watch.exe、和Kill.exe文件
+
+3.从BOSS中更改WatchArgs项将其中的TCS.Watcher.exe去掉不在监视TCS.Watcher.exe这个进程
+
+4.在桌面添加 watch.exe的快捷方式改名为启动 
+
+5.在桌面添加 Kill.exe的快捷方式改名为关闭
+
+6.将Watch.exe添加到启动项中使得服务器重启后既可以启动程序。
+
+## 2014年3月更新内容 ##
+1. 调用图片的链接 在车道执行 
+   ` ln /EMRCV4/IMAGE/TEMP/ /lighttpd/webpages/IMAGE -s `
+可以在浏览器中输入 
+**`http://车道IP/IMAGE/1TEMP.JPG `**
+来访问 是否可访问， 否则监控画面上不显示图片。 
+
+2. 开启SSHFTP方式进行参数表更新 将功能开关 SSHFTP 设置为 true
+
+3. 如果监控计算机没有外接喇叭 使用内置喇叭， 将 功能开关的 Beep 设置为 true 
+
+4. 开启VNC功能后，需要设置 本地VNC的 VNCPassword ，此密码 也用于 第二条中 ssh 连接密码 
+
+5. 禁止和开启车种监控确认 CARKINDTABLE.TXT 中的倒数第3个字节 1 为开启 0为关闭
+
+6. 禁止和开机计重菜单监控确认 CONSTANT.TXT 中 G行， 第6个字符（前5个为计重参数 0 1 2 3 4） 开始 与计重菜单一致 升级常量表指令：
+
+   ` rm /EMRCV4/PARAMETER/CONSTANT.TXT;wget ftp://10.0.44.1/LDCPARAM/FUTURE/CONSTANT.TXT -c -t 5 -q --directory-prefix=/EMRCV4/PARAMETER/;reboot;exit` 
+
+### 注意： ###
+1. 不启用监控确认的站请将车种表的 绿色通道 和 农用车 的 倒数第三位 改为0 。 
+2. 此次升级必须先升级数据库
+3. 此次升级必须再升级消息映射表G30_MsgMap.Config 和图片映射文件 G30_ImageMap.Config,G30_MsgMap.ID.Config 
+4. 此次升级车道客户端必须最后升级
+5. 参数表下发目前建议开启SSHFTP 方式下发，请参见功能更改第二条。 
+6. 此次服务端升级建议将过去的Apploder.exe kill.exe watch.exe 等文件清理删除， 直接BIN和BOSS删掉重新覆盖
