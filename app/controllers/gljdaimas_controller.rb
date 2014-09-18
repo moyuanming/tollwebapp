@@ -54,13 +54,21 @@ class GljdaimasController < ApplicationController
   # DELETE /gljdaimas/1
   # DELETE /gljdaimas/1.json
   def destroy
+    
+
     @gljdaima.destroy
     respond_to do |format|
       format.html { redirect_to gljdaimas_url, notice: 'Gljdaima was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
-
+  def showtollstations
+    @title = "Following"
+    @gljdaima = Gljdaima.find(params[:id])
+    @title =@gljdaima.name +  "管辖收费站信息"
+    @tollstations = Tollstation.where(gljdaima_id:@gljdaima.id)
+    render 'show_tollstation'
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_gljdaima

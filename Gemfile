@@ -38,9 +38,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'bootstrap-sass', '2.3.2.0'
+gem 'bootstrap-sass', '3.2.0.1'
 
- gem 'factory_girl_rails', '4.2.1'
+gem 'factory_girl_rails', '4.2.1'
 
 gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'

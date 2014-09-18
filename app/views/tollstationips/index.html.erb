@@ -1,0 +1,38 @@
+<h1>Listing tollstationips</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+    <th>收费站</th>
+      <th>原路网号</th>
+      <th>原站号</th>
+      <th>原IP</th>
+      <th>新路网号</th>
+      <th>新站代码</th>
+      <th>新IP</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tollstationips.each do |tollstationip| %>
+      <tr>
+       <td><%= Tollstation.find(tollstationip.tollstation_id).name %></td> 
+        <td><%= tollstationip.oldnetwork %></td>
+        <td><%= tollstationip.oldplaza %></td>
+        <td><%= tollstationip.oldip %></td>
+        <td><%= tollstationip.newnetwork %></td>
+        <td><%= tollstationip.newplaza %></td>
+        <td><%= tollstationip.newip %></td>
+       
+        <td><%= link_to 'Show', tollstationip %></td>
+        <td><%= link_to 'Edit', edit_tollstationip_path(tollstationip) %></td>
+        <td><%= link_to 'Destroy', tollstationip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tollstationip', new_tollstationip_path %>

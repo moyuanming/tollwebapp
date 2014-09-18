@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140910081645) do
+ActiveRecord::Schema.define(version: 20140915094037) do
+
+  create_table "Table1", id: false, force: true do |t|
+    t.string "sf",  limit: 10
+    t.string "dfs", limit: 10
+    t.string "sdf", limit: 10
+  end
 
   create_table "gljdaimas", force: true do |t|
     t.string   "name"
@@ -19,6 +25,7 @@ ActiveRecord::Schema.define(version: 20140910081645) do
     t.string   "desc"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "pianqudaima_id"
   end
 
   create_table "microposts", force: true do |t|
@@ -49,14 +56,20 @@ ActiveRecord::Schema.define(version: 20140910081645) do
   add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
   add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
 
-  create_table "tollstations", force: true do |t|
-    t.string   "name"
+  create_table "tollstationips", force: true do |t|
     t.string   "oldnetwork"
     t.string   "oldplaza"
     t.string   "oldip"
     t.string   "newnetwork"
     t.string   "newplaza"
     t.string   "newip"
+    t.integer  "tollstation_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tollstations", force: true do |t|
+    t.string   "name"
     t.integer  "pianqudaima_id"
     t.integer  "gljdaima_id"
     t.datetime "created_at"

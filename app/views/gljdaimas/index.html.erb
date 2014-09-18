@@ -7,6 +7,7 @@
     <tr>
       <th>公路局名称</th>
       <th>公路局编码</th>
+      <th>所属片区</th>
       <th>描述</th>
       <th colspan="2"></th>
     </tr>
@@ -15,8 +16,9 @@
   <tbody>
     <% @gljdaimas.each do |gljdaima| %>
       <tr>
-        <td><%= link_to gljdaima.name ,gljdaima %></td>
+        <td><a href="<%= showtollstations_gljdaima_path(gljdaima) %>"><%= gljdaima.name%></a></td>
         <td><%= gljdaima.no %></td>
+        <td><%= Pianqudaima.find(gljdaima.pianqudaima_id).name %></td>
         <td><%= gljdaima.desc %></td>
         <td><%= link_to '编辑', edit_gljdaima_path(gljdaima) %></td>
         <td><%= link_to '删除', gljdaima, method: :delete, data: { confirm: 'Are you sure?' } %></td>

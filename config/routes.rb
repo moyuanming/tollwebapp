@@ -1,10 +1,21 @@
 Rails.application.routes.draw do
 
+  resources :tollstationips
+
   resources :tollstations
 
-  resources :gljdaimas
+  resources :gljdaimas do
+    member do
+      get :showtollstations
+    end
+  end
+
   resources :markdown
-  resources :pianqudaimas
+  resources :pianqudaimas do
+    member do
+      get :showgljinfo
+    end
+  end
 
   resources :users do
     member do

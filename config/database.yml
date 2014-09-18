@@ -13,12 +13,14 @@ default: &default
 
 
 development:
-    adapter: sqlserver
-    host: 192.168.50.36
-    database: test
-    username: sa
-    password: future 
-  #database: db/development.sqlite3
+    #adapter: sqlserver
+    #host: 192.168.50.36
+    #database: test
+    #username: sa
+    #password: future 
+    #timeout: 5000
+  <<: *default
+  database: db/development.sqlite3
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

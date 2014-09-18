@@ -1,0 +1,28 @@
+<h3><%= @title %></h3>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>收费站</th>
+ 
+      <th>所属片区</th>
+      <th>所属公路局</th>
+      <th colspan="2">操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tollstations.each do |tollstation| %>
+      <tr>
+        <td><%= link_to tollstation.name , tollstation%></td>
+    
+        <td><%= link_to Pianqudaima.find(Gljdaima.find( tollstation.gljdaima_id).pianqudaima_id).name ,Pianqudaima.find(Gljdaima.find( tollstation.gljdaima_id).pianqudaima_id)%></td>
+        <td><%= link_to Gljdaima.find( tollstation.gljdaima_id).name ,Gljdaima.find( tollstation.gljdaima_id) %></td>
+       
+        <td><%= link_to 'Edit', edit_tollstation_path(tollstation) %></td>
+        <td><%= link_to 'Destroy', tollstation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+ <%= @tollstations.count %>

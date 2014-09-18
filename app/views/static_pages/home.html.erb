@@ -1,25 +1,114 @@
 <% if signed_in? %>
- 
-    
-     
-      <h3>Micropost Feed</h3>
-      <%= render 'shared/feed' %>
+
+<div class="row">
+  <div class="col-sm-6 col-md-5 col-lg-3 ">
+    <div class=" thumbnail " >
+      <div class="bookheader bookcolor-success" >
+        <br>
+        <h3 >新疆公路收费</h3>
+        <h3 >信息规范</h3>
+      </div>
+      <div class="caption">
+        <h3>
+          <%= link_to "收费片区信息" , pianqudaimas_path %>
+          <br>
+          <small><span class="badge"><%=  Pianqudaima.all.count %></span></small>
+        </h3>
+        <p>根据新疆路网建设进程将全疆路网分成若干片区，分片区实施联网收费，片
+区间设置主线收费站，各片区联网收费工作应遵循自治区的统一规划和技术要
+求。</p>
+      </div>
     </div>
+  </div>
+  <div class="col-sm-6 col-md-5 col-lg-3 ">
+    <div class=" thumbnail   ">
+      <div class="bookheader bookcolor-primary">
+        <br>
+        <h3 >新疆公路收费</h3>
+        <h3 >信息规范</h3>
+      </div>
+      <div class="caption">
+        <h3>
+          <%= link_to "公路局信息", gljdaimas_path %>
+          <br>
+          <small><span class="badge"><%=  Gljdaima.all.count %></span></small>
+        </h3>
+        <p>Bootstrap 编码规范：编写灵活、稳定、高质量的 HTML 和 CSS 代码的规范。</p>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-5 col-lg-3 ">
+    <div class=" thumbnail   ">
+      <div class="bookheader bookcolor-warning">
+        <br>
+        <h3 >新疆公路收费</h3>
+        <h3 >信息规范</h3>
+      </div>
+
+      <div class="caption">
+        <h3>
+          <%= link_to "收费站基本信息", tollstations_path %>
+          <br>
+          <small><span class="badge"><%=  Tollstation.all.count %></span></small>
+          </h3>
+        <p>Bootstrap 编码规范：编写灵活、稳定、高质量的 HTML 和 CSS 代码的规范。</p>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-5 col-lg-3 ">
+    <div class=" thumbnail   ">
+      <div class="bookheader bookcolor-danger">
+        <br>
+        <h3 >新疆公路收费</h3>
+        <h3 >信息规范</h3>
+      </div>
+
+      <div class="caption">
+        <h3>
+          <%= link_to "收费站IP地址信息", tollstationips_path %>
+              <br>
+          <small><span class="badge"><%=  Tollstationip.all.count %></span></small>
+          </h3>
+        <p>Bootstrap 编码规范：编写灵活、稳定、高质量的 HTML 和 CSS 代码的规范。</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-6 col-md-4 col-lg-4 ">
+    <div class="thumbnail showcard">
+      <a href="/pianqudaimas" title="Bootstrap 编码规范" target="_blank" onclick="_hmt.push(['_trackEvent', 'tile', 'click', 'codeguide'])">
+        <img class="lazy" src="http://static.bootcss.com/www/assets/img/null.png?v2" width="300" height="150" data-src="http://static.bootcss.com/www/assets/img/codeguide.png" alt="Headroom.js"></a>
+      <div class="caption">
+        <h3>
+          <%= link_to "收费片区信息" , pianqudaimas_path %>
+          <br>
+          <small>by @mdo</small>
+        </h3>
+        <p>Bootstrap 编码规范：编写灵活、稳定、高质量的 HTML 和 CSS 代码的规范。</p>
+
+      </div>
+    </div>
+  </div>
+
+</div>
 
 <% else %>
-<%= render  'markdown/home' %>
-  <div class="center hero-unit">
-   
-    <h1>Welcome to the Sample App</h1>
 
-    <h2>
-      This is the home page for the
-      <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
-      sample application.
-    </h2>
+<div class="center hero-unit">
 
-    <%= link_to "Sign up now!", signup_path,
-                                class: "btn btn-large btn-primary" %>
-  </div>
+  <h1>Welcome to the Sample App</h1>
+
+  <h2>
+    This is the home page for the
+    <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
+    sample application.
+  </h2>
+
+  <%= link_to "Sign up now!", signup_path,
+                                class: "btn btn-large btn-primary" %></div>
 
 <% end %>

@@ -11,9 +11,7 @@ class TollstationsController < ApplicationController
   # GET /tollstations/1.json
   def show
   end
-  def empty?
-    1==1
-  end
+
   # GET /tollstations/new
   def new
     @tollstation = Tollstation.new

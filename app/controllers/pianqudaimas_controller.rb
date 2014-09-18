@@ -28,6 +28,7 @@ class PianqudaimasController < ApplicationController
 
     respond_to do |format|
       if @pianqudaima.save
+        
         format.html { redirect_to @pianqudaima, notice: 'Pianqudaima was successfully created.' }
         format.json { render :show, status: :created, location: @pianqudaima }
       else
@@ -61,6 +62,12 @@ class PianqudaimasController < ApplicationController
     end
   end
 
+  def showgljinfo
+      @title = "show Glj Info"
+    @pianqudaima = Pianqudaima.find(params[:id])
+    @showgljs = Gljdaima.where(pianqudaima_id:@pianqudaima.id)
+    render 'show_gljinfo'
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pianqudaima

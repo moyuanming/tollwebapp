@@ -1,0 +1,46 @@
+<%= form_for(@tollstationip) do |f| %>
+  <% if @tollstationip.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tollstationip.errors.count, "error") %> prohibited this tollstationip from being saved:</h2>
+
+      <ul>
+      <% @tollstationip.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label Tollstation.find_by(id:     @tollstationip.tollstation_id ).name %><br>
+  </div>
+  <div class="field">
+    <%= f.label :oldnetwork %><br>
+    <%= f.text_field :oldnetwork %>
+  </div>
+  <div class="field">
+    <%= f.label :oldplaza %><br>
+    <%= f.text_field :oldplaza %>
+  </div>
+  <div class="field">
+    <%= f.label :oldip %><br>
+    <%= f.text_field :oldip %>
+  </div>
+  <div class="field">
+    <%= f.label :newnetwork %><br>
+    <%= f.text_field :newnetwork %>
+  </div>
+  <div class="field">
+    <%= f.label :newplaza %><br>
+    <%= f.text_field :newplaza %>
+  </div>
+  <div class="field">
+    <%= f.label :newip %><br>
+    <%= f.text_field :newip %>
+  </div>
+  <%= f.text_field :tollstation_id,type: "hidden"  %>
+
+
+  <div class="actions">
+    <%=  f.submit %>
+  </div>
+<% end %>

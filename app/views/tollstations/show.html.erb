@@ -5,45 +5,18 @@
   <%= @tollstation.name %>
 </p>
 
-<p>
-  <strong>Oldnetwork:</strong>
-  <%= @tollstation.oldnetwork %>
-</p>
 
-<p>
-  <strong>Oldplaza:</strong>
-  <%= @tollstation.oldplaza %>
-</p>
 
-<p>
-  <strong>Oldip:</strong>
-  <%= @tollstation.oldip %>
-</p>
-
-<p>
-  <strong>Newnetwork:</strong>
-  <%= @tollstation.newnetwork %>
-</p>
-
-<p>
-  <strong>Newplaza:</strong>
-  <%= @tollstation.newplaza %>
-</p>
-
-<p>
-  <strong>Newip:</strong>
-  <%= @tollstation.newip %>
-</p>
-
-<p>
-  <strong>Pianqudaima:</strong>
-  <%= Pianqudaima.find(@tollstation.pianqudaima_id).name %>
-</p>
 
 <p>
   <strong>Gljdaima:</strong>
   <%= Gljdaima.find(@tollstation.gljdaima_id).name %>
 </p>
+<% if Tollstationip.find_by(tollstation_id: @tollstation.id)  %>
 
-<%= link_to 'Edit', edit_tollstation_path(@tollstation) %> |
-<%= link_to 'Back', tollstations_path %>
+<%= link_to '修改IP信息', edit_tollstationip_path(Tollstationip.find_by(tollstation_id: @tollstation.id)) %> 
+<% else %>
+	<%= link_to '添加IP信息 ', new_tollstationip_path(@tollstation) %> 
+<% end %>
+<%= link_to '修改收费站基本信息', edit_tollstation_path(@tollstation) %> |
+<%= link_to '返回', tollstations_path %>

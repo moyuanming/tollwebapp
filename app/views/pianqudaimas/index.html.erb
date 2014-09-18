@@ -1,34 +1,33 @@
-<h3>收费片区列表</h3>
 
-<table class="table table-bordered table-hover">
-  <thead>
-    <tr>
-      <th>片区名称</th>
-      <th>片区代码</th>
-      <th>片区描述</th>
-       <th colspan="2">操作</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% odd = 0 %>
     <% @pianqudaimas.each do |pianqudaima| %>
-      <% if odd ==0 %>
-      <tr class="">
-      <% odd =1 ; else %>  
-      <tr >
-      <% odd =0  ; end %>
-      
 
-        <td><%= link_to pianqudaima.name , pianqudaima %></td>
-        <td><%= pianqudaima.no %></td>
-        <td><%= pianqudaima.desc %></td>
-        <td><%= link_to '编辑', edit_pianqudaima_path(pianqudaima) %></td>
-        <td><%= link_to '删除', pianqudaima, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+     <div class="col-sm-6 col-md-5 col-lg-3 ">
+      <div class=" thumbnail   ">
+           <div class="bookheader bookcolor-success" >
+        <br>
+        <h3 >新疆公路收费</h3>
+        <h3 >信息规范</h3>
+      </div>
+
+        <div class="caption">
+          <h3>
+          <a  href="<%= showgljinfo_pianqudaima_path(pianqudaima) %>"><%= pianqudaima.name%></a></h3>
+          <p><%= pianqudaima.no %></p>
+        <h5>
+          <a  href="<%= showgljinfo_pianqudaima_path(pianqudaima) %>"><%= "管辖公路局" %><span class="badge"><%=  Gljdaima.where(pianqudaima_id:pianqudaima.id).count %></span></a></h5>
+<%= link_to '编辑', edit_pianqudaima_path(pianqudaima) %>
+<%= link_to '删除', pianqudaima, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      </div>
+    </div>
+
+
+
+
+     
+     
     <% end %>
-  </tbody>
-</table>
+
 
 <br>
 
